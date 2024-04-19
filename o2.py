@@ -31,9 +31,9 @@ def encrypt(message, binaries):
     return binaryNums, messagebinaries
 
 def decrypt(enrypted, binaries):
+    decryptBinary =[]
     for i in range(len(encrypted)):
         temp = ''
-        decryptBinary =[]
         # messagebinaries.append(binaryChar)
         for j in range(len(encrypted[i])):
             if encrypted[i][j] == '1' and binaries[i][j] == '1':
@@ -46,7 +46,7 @@ def decrypt(enrypted, binaries):
 
         decryptBinary.append(temp)
 
-    print(decryptBinary)
+    return decryptBinary
 
 
 def BinaryToText(encrypted):
@@ -64,11 +64,13 @@ def BinaryToText(encrypted):
 binaries = randomKey(message)
 encrypted, messagebin = encrypt(message, binaries)
 justwork = BinaryToText(encrypted)
-
+final = decrypt(encrypted, binaries)
 
 print(messagebin)
 print(binaries)
 print(encrypted)
 print(f"Final encrypted message (it is there): {justwork}")
 decrypt(encrypted, binaries)
+finalstring = BinaryToText(final)
+print(finalstring)
 
